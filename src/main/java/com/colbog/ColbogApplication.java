@@ -1,4 +1,4 @@
-package com.colbog.colbog;
+package com.colbog;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

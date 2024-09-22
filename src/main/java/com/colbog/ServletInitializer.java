@@ -1,4 +1,4 @@
-package com.colbog.colbog;
+package com.colbog;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
