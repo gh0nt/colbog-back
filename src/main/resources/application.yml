@@ -1,6 +1,9 @@
+server:
+  port: 8081
+
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/coelgios_bogota
+    url: jdbc:postgresql://localhost:5432/colegios_bogota
     username: nicolas
     password: nicolas
     driver-class-name: org.postgresql.Driver
