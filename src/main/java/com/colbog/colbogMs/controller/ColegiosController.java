@@ -1,0 +1,34 @@
+package com.colbog.colbogMs.controller;
+
+import com.colbog.colbogMs.service.ColegiosService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+@CrossOrigin
+@RestController
+@RequestMapping("/api/v1/colegios")
+public class ColegiosController {
+
+    @Autowired
+    private ColegiosService colegiosService;
+
+    @GetMapping("/find-all")
+    public ResponseEntity<?> findAll() {
+        var colegios= colegiosService.findAll();
+        if(colegios == null){
+            return new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(colegios, HttpStatus.OK);
+    }
+
+    @GetMapping("/findall-page/{page}/{size}")
+    public ResponseEntity<?> findPage(@PathVariable  int page, @PathVariable int size) {
+        var colegios= colegiosService.findPage(page,size);
+        if(colegios == null){
+            return new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(colegios, HttpStatus.OK);
+    }
+}
