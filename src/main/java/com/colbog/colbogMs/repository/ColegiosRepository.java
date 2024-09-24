@@ -9,8 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+
 
 @Repository
 public interface ColegiosRepository extends JpaRepository<ColegiosEntity, Long> {
@@ -29,4 +28,30 @@ public interface ColegiosRepository extends JpaRepository<ColegiosEntity, Long> 
              "and (:prestador_de_servicio is null or :prestador_de_servicio = 'nulo' or c.prestador_de_servicio like %:prestador_de_servicio%)",
        nativeQuery=true)
        List<ColegiosEntity> findByNivel(@Param("niveles") String niveles,@Param("jornadas") String jornadas,@Param("especialidad") String especialidad ,@Param("modelos_educativos") String modelos_educativos ,@Param("idiomas") String idiomas ,@Param("calendario") String calendario, @Param("discapacidades") String discapacidades, @Param("prestador_de_servicio") String prestador_de_servicio);
+
+       @Query(value = "SELECT distinct (niveles) FROM colegios", nativeQuery = true)
+       List<String> findNiveles();
+
+       @Query(value = "SELECT distinct (jornadas) FROM colegios", nativeQuery = true)
+       List<String> findJornadas();
+
+       @Query(value = "SELECT distinct (especialidad) FROM colegios", nativeQuery = true)
+       List<String> findEspecialidad();
+
+       @Query(value = "SELECT distinct (modelos_educativos) FROM colegios", nativeQuery = true)
+       List<String> findModelosEducativos();
+
+       @Query(value = "SELECT distinct (idiomas) FROM colegios", nativeQuery = true)
+       List<String> findIdiomas();
+
+       @Query(value = "SELECT distinct (calendario) FROM colegios", nativeQuery = true)
+       List<String> findCalendario();
+
+       @Query(value = "SELECT distinct (discapacidades) FROM colegios", nativeQuery = true)
+       List<String> findDiscapacidades();
+
+       @Query(value = "SELECT distinct (prestador_de_servicio) FROM colegios", nativeQuery = true)
+       List<String> findPrestador();
+
+
 }

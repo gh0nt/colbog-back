@@ -3,6 +3,8 @@ package com.colbog.colbogMs.controller;
 import com.colbog.colbogMs.dto.MessageDto;
 import com.colbog.colbogMs.models.ColegiosEntity;
 import com.colbog.colbogMs.service.ColegiosService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,4 +71,101 @@ public class ColegiosController {
         }
         return new ResponseEntity<>(colegios, HttpStatus.OK);
     }
+
+    @GetMapping("/find-niveles")
+    public ResponseEntity<List<String>> findNiveles() {
+       
+        List<String> niveles = colegiosService.findNiveles();
+        
+        if(niveles == null){
+            return new ResponseEntity<>(niveles, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(niveles, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-jornadas")
+    public ResponseEntity<List<String>> findJornadas() {
+       
+        List<String> jornadas = colegiosService.findJornadas();
+        
+        if(jornadas == null){
+            return new ResponseEntity<>(jornadas, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(jornadas, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-especialidad")
+    public ResponseEntity<List<String>> findEspecialidad() {
+       
+        List<String> especialidad = colegiosService.findEspecialidad();
+        
+        if(especialidad == null){
+            return new ResponseEntity<>(especialidad, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(especialidad, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-modeloseducativos")
+    public ResponseEntity<List<String>> findModelosEducativos() {
+       
+        List<String> modeloseducativos = colegiosService.findModelosEducativos();
+        
+        if(modeloseducativos == null){
+            return new ResponseEntity<>(modeloseducativos, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(modeloseducativos, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-idiomas")
+    public ResponseEntity<List<String>> findIdiomas() {
+       
+        List<String> idiomas = colegiosService.findIdiomas();
+        
+        if(idiomas == null){
+            return new ResponseEntity<>(idiomas, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(idiomas, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-calendario")
+    public ResponseEntity<List<String>> findCalendario() {
+       
+        List<String> calendario = colegiosService.findCalendario();
+        
+        if(calendario == null){
+            return new ResponseEntity<>(calendario, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(calendario, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-discapacidades")
+    public ResponseEntity<List<String>> findDiscapacidades() {
+       
+        List<String> discapacidades = colegiosService.findDiscapacidades();
+        
+        if(discapacidades == null){
+            return new ResponseEntity<>(discapacidades, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(discapacidades, HttpStatus.OK);
+        
+    }
+
+    @GetMapping("/find-prestador")
+    public ResponseEntity<List<String>> findPrestador() {
+       
+        List<String> prestador = colegiosService.findPrestador();
+        
+        if(prestador == null){
+            return new ResponseEntity<>(prestador, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(prestador, HttpStatus.OK);
+        
+    }
+
 }
