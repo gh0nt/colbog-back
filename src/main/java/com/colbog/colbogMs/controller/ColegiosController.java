@@ -54,12 +54,12 @@ public class ColegiosController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<MessageDto> delete(@PathVariable Long id) {
-        boolean response=colegiosService.delete(id);
-        if(response){
-            return ResponseEntity.ok(new MessageDto(HttpStatus.OK,"Eliminado con exito"));
+        boolean response = colegiosService.delete(id);
+        if (response) {
+            return ResponseEntity.ok(new MessageDto(HttpStatus.OK, "Eliminado con exito"));
         }
         return ResponseEntity.internalServerError().body(new MessageDto(HttpStatus.INTERNAL_SERVER_ERROR, "Error Eliminando"));
-      
+    }
     @GetMapping("/findFilter/{niveles}/{jornadas}/{especialidad}/{modelos_educativos}/{idiomas}/{calendario}/{discapacidades}/{prestador_de_servicio}")
     public ResponseEntity<?> findFilter(@PathVariable String niveles, @PathVariable String jornadas, @PathVariable String especialidad, @PathVariable String modelos_educativos, @PathVariable String idiomas, @PathVariable String calendario, @PathVariable String discapacidades, @PathVariable String prestador_de_servicio) {
         
