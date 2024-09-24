@@ -23,4 +23,9 @@ public class ColegiosService {
         Pageable pageable = PageRequest.of(page, size);
         return colegiosRepository.findAll(pageable);
     }
+
+    public List<ColegiosEntity> findFilter(String niveles, String jornadas, String especialidad, String modelos_educativos, String idiomas, String calendario, String discapacidades, String prestador_de_servicio) {
+        //Pageable pageable = PageRequest.of(page, size);
+        return colegiosRepository.findByNivel(niveles, jornadas, especialidad, modelos_educativos, idiomas, calendario, discapacidades, prestador_de_servicio);
+    }
 }
