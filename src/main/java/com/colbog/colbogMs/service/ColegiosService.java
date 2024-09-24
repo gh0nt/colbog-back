@@ -27,6 +27,7 @@ public class ColegiosService {
         return colegiosRepository.findAll(pageable);
     }
 
+
     public boolean save(ColegiosEntity colegio){
         if(isNombreSimilar(colegio.getNombreEstablecimiento())){
             return false;
@@ -68,5 +69,10 @@ public class ColegiosService {
             return true;
         }
         return false;
+    }
+
+    public List<ColegiosEntity> findFilter(String niveles, String jornadas, String especialidad, String modelos_educativos, String idiomas, String calendario, String discapacidades, String prestador_de_servicio) {
+        //Pageable pageable = PageRequest.of(page, size);
+        return colegiosRepository.findByNivel(niveles, jornadas, especialidad, modelos_educativos, idiomas, calendario, discapacidades, prestador_de_servicio);
     }
 }
