@@ -75,4 +75,37 @@ public class ColegiosService {
         //Pageable pageable = PageRequest.of(page, size);
         return colegiosRepository.findByNivel(niveles, jornadas, especialidad, modelos_educativos, idiomas, calendario, discapacidades, prestador_de_servicio);
     }
+
+    public List<String> findNiveles(){
+        return colegiosRepository.findNiveles();
+    }
+
+    public List<String> findJornadas(){
+        return colegiosRepository.findJornadas();
+    }
+
+    public List<String> findEspecialidad(){
+        return colegiosRepository.findEspecialidad();
+    }
+
+    public List<String> findModelosEducativos(){
+        return colegiosRepository.findModelosEducativos();
+    }
+
+    public List<String> findIdiomas(){
+        return colegiosRepository.findIdiomas();
+    }
+
+    public List<String> findCalendario(){
+        return colegiosRepository.findCalendario();
+    }
+
+    public List<String> findDiscapacidades(){
+        return colegiosRepository.findDiscapacidades();
+    }
+
+    public List<String> findPrestador(){
+        return colegiosRepository.findPrestador();
+    }
+    
 }
