@@ -9,8 +9,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface ColegiosRepository extends JpaRepository<ColegiosEntity, Long> {
+
+    @Query(value = "SELECT * FROM colegios e WHERE levenshtein(e.nombreestablecimiento, :nombre) <= :threshold", nativeQuery = true)
+    List<ColegiosEntity> findByNombreEstablecimiento(@Param("nombre") String nombre, @Param("threshold") int threshold);
     
     @Query(value="select * from colegios c " +
              "where (:niveles is null or :niveles = 'nulo' or c.niveles like %:niveles%) " +
@@ -23,5 +29,4 @@ public interface ColegiosRepository extends JpaRepository<ColegiosEntity, Long> 
              "and (:prestador_de_servicio is null or :prestador_de_servicio = 'nulo' or c.prestador_de_servicio like %:prestador_de_servicio%)",
        nativeQuery=true)
        List<ColegiosEntity> findByNivel(@Param("niveles") String niveles,@Param("jornadas") String jornadas,@Param("especialidad") String especialidad ,@Param("modelos_educativos") String modelos_educativos ,@Param("idiomas") String idiomas ,@Param("calendario") String calendario, @Param("discapacidades") String discapacidades, @Param("prestador_de_servicio") String prestador_de_servicio);
-   
 }
