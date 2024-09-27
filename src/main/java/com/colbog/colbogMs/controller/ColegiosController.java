@@ -36,6 +36,15 @@ public class ColegiosController {
         return new ResponseEntity<>(colegios, HttpStatus.OK);
     }
 
+    @GetMapping("/find-colegio/{id}")
+    public ResponseEntity<?> findColegio(@PathVariable Long id) {
+        var colegios= colegiosService.findColegio(id);
+        if(colegios == null){
+            return new ResponseEntity<>("{}", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(colegios, HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<MessageDto> save(@RequestBody ColegiosEntity colegio) {
         boolean response=colegiosService.save(colegio);
