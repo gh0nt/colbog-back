@@ -22,6 +22,10 @@ public class ColegiosService {
         return colegiosRepository.findAll();
     }
 
+    public Optional<ColegiosEntity> findColegio(Long id){
+        return colegiosRepository.findById(id);
+    }
+
     public Page<ColegiosEntity> findPage(int page, int size) {
         Pageable pageable = PageRequest.of(page, size);
         return colegiosRepository.findAll(pageable);
